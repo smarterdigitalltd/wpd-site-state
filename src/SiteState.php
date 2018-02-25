@@ -14,10 +14,11 @@ namespace WPD\Toolset;
 
 class SiteState
 {
+
 	/**
 	 * @var
 	 */
-	protected static $siteState = 'development';
+	protected static $site_state = 'development';
 
 	/**
 	 * @var
@@ -33,7 +34,7 @@ class SiteState
 	 */
 	protected function __construct()
 	{
-		$this->registerHooks();
+		$this->setSiteState();
 	}
 
 	/**
@@ -52,14 +53,38 @@ class SiteState
 		return self::$instance;
 	}
 
+	public static function isDevelopment()
+	{
+		return 'development' === self::$site_state;
+	}
+
+	public static function isProduction()
+	{
+		return 'development' === self::$site_state;
+	}
+
+	public static function is()
+	{
+		return self::$site_state;
+	}
+
 	/**
-	 * Run hooks
+	 * Set site state
 	 *
 	 * @since   1.0.0
 	 *
 	 * @return  void
 	 */
-	private function registerHooks()
+	protected function setSiteState()
 	{
+		$tests = ['localhost', '.dev', '.test', 'kinsta'];
+
+		foreach ($tests as $test) {
+			if (false !== strpos(site_url(), $test)) {
+				self::$site_state = 'production';
+
+				return;
+			}
+		}
 	}
 }
