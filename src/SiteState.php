@@ -55,12 +55,12 @@ class SiteState
 
 	public static function isDevelopment()
 	{
-		return 'development' === self::$site_state;
+		return 'production' !== self::$site_state;
 	}
 
 	public static function isProduction()
 	{
-		return 'development' === self::$site_state;
+		return 'production' === self::$site_state;
 	}
 
 	public static function is()
@@ -81,10 +81,12 @@ class SiteState
 
 		foreach ($tests as $test) {
 			if (false !== strpos(site_url(), $test)) {
-				self::$site_state = 'production';
+				self::$site_state = 'development';
 
 				return;
 			}
 		}
+
+		self::$site_state = 'production';
 	}
 }
