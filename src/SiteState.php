@@ -18,7 +18,7 @@ class SiteState
 	/**
 	 * @var
 	 */
-	protected static $site_state = 'development';
+	public static $site_state = 'development';
 
 	/**
 	 * @var
