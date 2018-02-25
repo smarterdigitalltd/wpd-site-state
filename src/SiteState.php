@@ -10,7 +10,7 @@
  * @license     GNU-2.0+
  */
 
-namespace WPD\Toolset\Setup;
+namespace WPD\Toolset;
 
 class SiteState
 {
@@ -55,7 +55,7 @@ class SiteState
 	 *
 	 * @return  void
 	 */
-	public static function registerHooks()
+	private function registerHooks()
 	{
 	}
 }

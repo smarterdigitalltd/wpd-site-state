@@ -8,5 +8,11 @@
             "email": "doug@smarter.uk.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "files": [ "wpd-toolset-site-state.php" ],
+        "psr-4": {
+            "WPD\\Toolset\\": "src"
+        }
+    }
 }
