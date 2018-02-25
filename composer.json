@@ -1,0 +1,11 @@
+{
+    "name": "wpdevelopers/wpd-toolset-site-state",
+    "description": "Check if the site is in production or development",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Doug Belchamber",
+            "email": "doug@smarter.uk.com"
+        }
+    ]
+}
