@@ -14,6 +14,10 @@ namespace WPD\Toolset;
 
 class SiteState
 {
+	/**
+	 * @var
+	 */
+	protected static $siteState = 'development';
 
 	/**
 	 * @var
