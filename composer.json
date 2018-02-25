@@ -1,5 +1,5 @@
 {
-    "name": "wpdevelopers/wpd-toolset-site-state",
+    "name": "smarterdigitalltd/wpd-toolset-site-state",
     "description": "Check if the site is in production or development",
     "type": "library",
     "authors": [
