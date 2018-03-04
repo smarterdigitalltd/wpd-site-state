@@ -1,5 +1,5 @@
 {
-    "name": "smarterdigitalltd/wpd-toolset-site-state",
+    "name": "smarterdigital/wpd-toolset/features/site-state",
     "description": "Check if the site is in production or development",
     "type": "library",
     "authors": [
@@ -10,9 +10,8 @@
     ],
     "require": {},
     "autoload": {
-        "files": [ "wpd-toolset-site-state.php" ],
         "psr-4": {
-            "WPD\\Toolset\\": "src"
+            "WPD\\Toolset\\Features\\": "src"
         }
     }
 }
