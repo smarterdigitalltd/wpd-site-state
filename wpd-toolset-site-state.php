@@ -1,5 +1,3 @@
 <?php
 
-namespace WPD\Toolset;
-
-SiteState::getInstance();
+\WPD\Toolset\Features\SiteState::class;
