@@ -1,3 +1,3 @@
 <?php
 
-return \WPD\Toolset\Features\SiteState::class;
+return \WPD\Toolset\Features\SiteState::getInstance();

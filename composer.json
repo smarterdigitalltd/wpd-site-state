@@ -11,6 +11,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
+            "files": [ "wpd-toolset-notification-bar.php" ],
             "WPD\\Toolset\\Features\\": "src"
         }
     }
