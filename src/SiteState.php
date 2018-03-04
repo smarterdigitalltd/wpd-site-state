@@ -25,37 +25,19 @@ class SiteState
 	protected function __construct()
 	{
 		$this->setSiteState();
+		$this->runHooks();
 	}
 
 	/**
-	 * Get singleton instance
+	 * Run hooks
 	 *
-	 * @since   1.0.0.
+	 * @since   1.0.0
 	 *
-	 * @return  mixed Plugin Instance of the plugin
+	 * @return  void
 	 */
-	public static function getInstance()
+	public function runHooks()
 	{
-		if (!self::$instance) {
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
-
-	public static function isDevelopment()
-	{
-		return 'production' !== self::$site_state;
-	}
-
-	public static function isProduction()
-	{
-		return 'production' === self::$site_state;
-	}
-
-	public static function is()
-	{
-		return self::$site_state;
+		add_filter('body_class', [__CLASS__, 'setBodyClasses'], 10, 1);
 	}
 
 	/**
@@ -78,5 +60,61 @@ class SiteState
 		}
 
 		self::$site_state = 'production';
+	}
+
+	/**
+	 * Get singleton instance
+	 *
+	 * @since   1.0.0.
+	 *
+	 * @return  mixed Plugin Instance of the plugin
+	 */
+	public static function getInstance()
+	{
+		if (!self::$instance) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public static function isDevelopment()
+	{
+		return 'production' !== self::$site_state;
+	}
+
+	/**
+	 * Set body classes
+	 *
+	 * @since   1.0.0
+	 *
+	 * @param   array $classes Array of current body classes
+	 *
+	 * @return  array                       New array of body classes
+	 */
+	public static function setBodyClasses($classes)
+	{
+		$classes[] = self::isProduction() ? 'siteState--production' : 'siteState--development';
+
+		return $classes;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public static function isProduction()
+	{
+		return 'production' === self::$site_state;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function is()
+	{
+		return self::$site_state;
 	}
 }
